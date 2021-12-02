@@ -40,7 +40,7 @@ Agenda:
 
 Welcome to the oneIPL TAB participants:
 
-* Welcome to the oneAPI Technical Advisory Board (or TAB) for Image Processing Kickoff meeting. We really appreciate you were able to join our community and our aim is to make this collaboration as much effective as we can. 
+* Welcome to the oneAPI Technical Advisory Board (or TAB) for Image Processing Kickoff meeting. We really appreciate you were able to join our community and our aim is to make this collaboration as much effective as we can.
 
 * The goal of todays meeting is to make the overview of oneAPI initiative and especially of Image processing domain, to describe what kind of collaboration do we expect and to follow up with you on future TAB meetings.
 
@@ -60,8 +60,7 @@ oneAPI industry initiative:
 
 * The oneAPI is an open unified standard based specification for heterogenous programming which includes DPC++ language spec as a core part, Level Zero spec for the system interface for the oneAPI languages and libraries 
 
-* The oneAPI also inludes a number of elemets covering different domains like maths operations, data processing, video processing and now we are preparing to extend it for Image processing area also.
-The initial launch of oneAPI Spec v1 in Sept 2020 and since that time the speed of specification development and the number of participants in oneAPI community are actively growing.
+* The oneAPI also inludes a number of elemets covering different domains like maths operations, data processing, video processing and now we are preparing to extend it for Image processing area also. The initial launch of oneAPI Spec v1 in Sept 2020 and since that time the speed of specification development and the number of participants in oneAPI community are actively growing.
 
 * More information about oneAPI may be found in `oneAPI home page <https://www.oneapi.io/>`__ and `oneAPI Spec page <https://www.oneapi.io/spec/>`__.
 
