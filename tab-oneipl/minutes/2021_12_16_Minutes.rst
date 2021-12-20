@@ -50,8 +50,9 @@ oneIPL specification walk-through:
 
 * ipl::image class specifies image data, layout and supported data types,
   which are defined at compile-time. Each algorithm in the specification
-  contains the supported data types matrix. This matrix describes generic
-  layouts as channel count – rows (1,3,4 channels), and generic data types.
+  contains the layout and data types support matrix. This matrix describes
+  generic layouts as channel count – rows (1,3,4 channels), and generic
+  data types.
 
 * Generic formats are usually supported for multiple devices. Some data
   types are device specific.
@@ -109,11 +110,12 @@ oneIPL specification open discussion:
 
 * Sergey Ivanov, OpenCV, Intel: You've said, the SYCL queue carries device
   context - does all the objects need to belong to the same context?
-  Victor Getmanskiy, Intel: Yes, and each function has runtime checks that
-  queue and image objects belong to same context. Checks can be disabled in
-  implementation to avoid performance overhead. sycl::queue and data pointer
-  on slide 12 are specified in the image constructor so implementation can
-  determine, if the pointer and queue are related to the same device.
+  Victor Getmanskiy, Intel: Yes, and specification recommends for each function
+  to have a runtime checks that queue and image objects belong to same context.
+  Checks can be disabled in implementation to avoid performance overhead.
+  sycl::queue and data pointer on slide 12 are specified in the image
+  constructor so implementation can determine, if the pointer and queue are
+  related to the same device.
 
 * Tim van der Horst, Philips: If the checks for the supported data types are
   done before kernel, are they done in each call?
