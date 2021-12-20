@@ -126,8 +126,8 @@ oneIPL specification open discussion:
 * Robert Schneider, Siemens Healthineers: Can the ipl::image be constructed
   over sycl::image?
   Victor Getmanskiy, Intel: Currently sycl::image 2020 is not supported by any
-  compiler, and SYCL image specification is improving, but in future based on
-  improved image specification such construction can be possible.
+  compiler, and SYCL image specification is being improved, but in future based
+  on improved image specification such construction can be possible.
 
 * Sohrab Amirghodsi, Adobe: What is shared memory?
   Victor Getmanskiy, Intel: It is memory which implicitly copy from host to
