@@ -41,7 +41,7 @@ oneIPL specification walk-through:
 
 * oneAPI Image Processing Library (oneIPL) consists of several domains,
   which includes Basic functionality, Color conversion operations, Filtering,
-  Geometry related functionality and potentially can be extended to 3D 
+  Geometry related functionality and potentially can be extended to 3D
   operations. Current version of specification covers the most important parts
   of domains and might be extended in future versions.
 
