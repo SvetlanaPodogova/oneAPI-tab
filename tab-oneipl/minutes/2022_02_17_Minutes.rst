@@ -50,16 +50,16 @@ Introduction and Results of previous discussion of oneIPL API:
   and the function naming.
 
   The offline feedback was collected and processed (see offline feedbacks in
-  `oneIPL TAB #2 minutes`_). The following changes were applied to the 
+  `oneIPL TAB #2 minutes`_). The following changes were applied to the
   class image for the oneIPL Specification ver 0.6:
-  the get_pointer() is replaiced by general get_access(args) function, which is
+  the get_pointer() is replaced by general get_access(args) function, which is
   common for USM and Image (Texture) access abstraction.
 
   "unspecified" return type of this API is not language-related, but a
   spec-related placeholder for the return type, as per SYCL specification.
   It can be defined differently for particular class specialization in the
   implementation.
-  
+
   The minimal API approach is applied for Image class per oneIPL TAB feedbacks:
   get_rect(), get_roi() and get_origin() functions are left to get access to
   the necessary part of image, and the size accessors are now moved to the
@@ -69,9 +69,9 @@ Introduction and Results of previous discussion of oneIPL API:
   as image itself?
 
   **Victor Getmanskiy, Intel**: yes, it may be needed in user kernels to use
-  neighbor pixels to process borders for example. 
+  neighbor pixels to process borders for example.
   It is common case for Filters, when you need to access the pixels outside the
-  processing area. Also it may be used to create a different ROI on the same
+  processing area. Also, it may be used to create a different ROI on the same
   origin.
 
 
@@ -79,7 +79,7 @@ oneIPL Memory Model:
 
 * oneIPL spec supports different type of memory assigned via AllocatorT or
   provided via pointer by user to image constructor: host USM, device USM,
-  shared USM and Image (texture) memory. 
+  shared USM and Image (texture) memory.
 
   USM allocator has a major difference from std::allocator. Allocator cannot be
   constructed without context, so device context is required. It complicates
@@ -88,24 +88,23 @@ oneIPL Memory Model:
 * Victor Getmanskiy presented the different ways of memory allocation on host
   and device and different types of access and control (see slide 9 for
   details)
-  
+
 * **Ashish Uthama, Mathworks**: What happens at the point of access?
-  Is the copy operation performed? 
+  Is the copy operation performed?
 
   **Victor Getmanskiy, Intel**: It depends on the allocation and access types:
    * If you have device allocation and memory assess on device -> no copy is
-  performed. 
-   * If you have shared allocator and access for read -> no copy as 
-  well, but for the write access copy to host would happen after kernel is
-  finished. 
+     performed.
+   * If you have shared allocator and access for read -> no copy as well, but
+     for the write access copy to host would happen after kernel is finished.
    * In image_allocator_t case the memory will be allocated on both host
-  and device and access is possible only to write or to read, but not both.
-  In case of read no copy to host happen, in case of write copy to host would
-  happen after kernel is finished.
+     and device and access is possible only to write or to read, but not both.
+     In case of read no copy to host happen, in case of write copy to host would
+     happen after kernel is finished.
 
 * **Ashish Uthama, Mathworks**: Actually is this SYCL limitation? It is not so
   clear: if you have reading only, you do not know if it do the copy or not.
-  I prefer the explicit copy operation, so I am wondering if this is 
+  I prefer the explicit copy operation, so I am wondering if this is
   restriction of SYCL?
 
   **Victor Getmanskiy, Intel**: For the USM it is possible to implement
@@ -125,7 +124,7 @@ oneIPL Memory Model:
   NVIDIA. I think, in this case memory type will be device and mapping over
   such memory with proper queue would create image over memory without extra
   copy operation.
-  
+
 * In spec ver 0.5 default allocator was implementation-defined.
   For compatibility, in spec ver 0.6 the default allocator is selected as
   shared USM.
@@ -136,10 +135,10 @@ oneIPL Domains:
 * On the slide 15, the domains in blue are currently described in the oneIPL
   Specification, yellow color is to be considered in the future versions of
   spec.
-  
+
 * Color conversion domain includes conversion functions for the main formats,
-  the YUV422 and YUV444 to rgb are considered as a possible future extention.
-  
+  the YUV422 and YUV444 to rgb are considered as a possible future extension.
+
 * The Color conversions Domain API's are presented.
 
 * The Filtering Domain in oneIPL spec ver 0.6 includes Sobel filter with the
@@ -148,7 +147,7 @@ oneIPL Domains:
   Median.
 
 * The Transformation Domain includes resize functions with bilinear, bicubic,
-  lanczos and supersampling interpolation types and also mirriring. Futute
+  lanczos and supersampling interpolation types and also mirroring. Future
   extensions are: the Nearest Resize and Warp Affine bilinear functions.
 
 * **Ashish Uthama, Mathworks**: It makes a lot of sense to take into account
@@ -156,14 +155,14 @@ oneIPL Domains:
   sure, but there are some basic operations for Deep Learning and Neural
   Network operations for training. Augmentation, inference, normalize – need
   to take a look on this domain needs for further Specification extensions.
-  
+
 * There are several directions of future oneIPL Spec extensions were presented,
   the feedback and suggestions for the most important steps are appreciated.
 
-oneIPL Error Handling mechanizm:
+oneIPL Error Handling mechanism:
 
-* The oneIPL Error Handling mechanizm relies on the mechanism of C++
-  exceptions. The oneIPL additionally has a requirements to implement
+* The oneIPL Error Handling mechanism relies on the mechanism of C++
+  exceptions. The oneIPL additionally has a requirement to implement
   compile-time checks which can be based on template parameters.
 
 * Sync and async exception handling flows were presented. Exception types and
