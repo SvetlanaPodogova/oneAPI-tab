@@ -187,8 +187,11 @@ oneIPL specification walk-through:
   get_roi_rect(), get_full_image(), get_roi(), get_width(), get_height(),
   get_full_width() and get_full_height() functions are redundant in image class
   This can be represented by 3 methods only:
+
    * const roi_rect& get_rect() const;
+
    * auto original() const ->image;
+
    * auto apply_roi(const roi_rect& roi_rect) const ->image;
 
   Then, there will be the following:
@@ -200,6 +203,7 @@ oneIPL specification walk-through:
 
   Also, I suppose, that get_pointer() should be part of USM template
   specialization only, instead it is possible to introduce:
+
    * auto get_handle() -> cl::sycl::handle
 
 * The different image constructors are discussed.

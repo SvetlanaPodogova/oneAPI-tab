@@ -99,7 +99,7 @@ oneIPL Memory Model:
      for the write access copy to host would happen after kernel is finished.
    * In image_allocator_t case the memory will be allocated on both host
      and device and access is possible only to write or to read, but not both.
-     In case of read no copy to host happen, in case of write copy to host 
+     In case of read no copy to host happen, in case of write copy to host
      would happen after kernel is finished.
 
 * **Ashish Uthama, Mathworks**: Actually is this SYCL limitation? It is not so
