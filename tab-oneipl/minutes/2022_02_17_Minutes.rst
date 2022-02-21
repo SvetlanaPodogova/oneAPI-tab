@@ -108,10 +108,13 @@ oneIPL Memory Model:
   restriction of SYCL?
 
   **Victor Getmanskiy, Intel**: For the USM it is possible to implement
-  explicit copy, for Image it is under question. You still can explicitly copy
-  USM memory and create image with device_allocator_t over memory without copy.
-  For Textures it is currently not possible, because of SYCL limitations, but
-  we are working on it as well.
+  explicit copy, for Image it is not controlled (SYCL limitation). You still
+  can explicitly copy USM memory and create image with device_allocator_t over
+  memory without copy.
+
+  For Images (Textures) creating an object over device memory is currently not
+  possible because of SYCL limitations, the construction from host pointer is
+  only available. But we are working on it as well.
 
 * **Ashish Uthama, Mathworks**: I have a question about device context and
   different data allocators usage. For example, If I have integration to a 3rd
