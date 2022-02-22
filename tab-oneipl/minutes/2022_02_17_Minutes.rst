@@ -151,7 +151,8 @@ oneIPL Domains:
 
 * The Transformation Domain includes resize functions with bilinear, bicubic,
   lanczos and supersampling interpolation types and also mirroring. Future
-  extensions are: the Nearest Resize and Warp Affine bilinear functions.
+  extensions are: the Nearest neighbor Resize and Warp Affine bilinear
+  functions.
 
 * **Ashish Uthama, Mathworks**: It makes a lot of sense to take into account
   what are the most useful operations for AI domain. Resize is the major for
